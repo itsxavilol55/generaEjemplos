@@ -48,11 +48,11 @@ public class App {
         for (int i = 0; i < 2000; i++) {
             StringBuilder ejemplo = new StringBuilder();
             double num = Math.random();
-            int edad = (int) ((Math.random() * 51) + 9);
+            int edad = (int) ((Math.random() * 51) + 14);
             ejemplo.append(estaciones[(int) (Math.random() * 4)] + ", ");
             ejemplo.append("" + (int) ((Math.random() * 3) + 2020) + ", ");
             ejemplo.append("" + edad + ", ");
-            if (num <= 0.95)// se establece el margen de error
+            if (num <= 0.98)// se establece el margen de error
                 ejemplo.append((edad < 18 ? "Si," + (Math.random() >= 0.5 ? "Si" : "No") : "No, No") + ", ");
             // si la edad es menor a 18 necesita permiso
             else// en caso de que la persona no ocupe permiso se le asigna no tiene permiso
@@ -69,6 +69,7 @@ public class App {
     }
 
     private static void insertaTabla(StringBuilder ejemplo) {
+
         ejemplo.replace(0, ejemplo.length(),
                 ejemplo.toString().replaceAll("([a-zA-Z]+)", "'$1'"));
         try {
